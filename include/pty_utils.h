@@ -1,6 +1,7 @@
 #ifndef PTY_UTILS_H
 #define PTY_UTILS_H
 
+// POSIX API Interface for terminal I/O behavior
 #include <termios.h>
 #include <sys/types.h>
 #include <cstdint>
