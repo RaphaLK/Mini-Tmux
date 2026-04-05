@@ -50,8 +50,13 @@ void set_raw_mode(int fd, struct termios *saved)
 
   // abstracted off for ECHO, ICANON, ISIG, IXON, OPOST
   cfmakeraw(&raw);
+
+  // set read() to return if at least 1 byte is available
   raw.c_cc[VMIN] = 1;
+  // no timeout, wait indefinitely until 1 byte is available
   raw.c_cc[VTIME] = 0;
+
+  // apply new settings to terminal, wait until all pending output is written, discard unread input (Flush), applies new setting.
   tcsetattr(fd, TCSAFLUSH, &raw);
 }
 

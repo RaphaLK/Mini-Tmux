@@ -7,6 +7,7 @@
 #define SOCKET_PATH "/tmp/mini-tmux.sock"
 #define MAX_SESSIONS 5
 #define BUFFER_SIZE 4096
+#define MAX_CLIENTS 5
 
 // message type defintion
 enum class MsgType : uint8_t {
